@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrapper div {
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 550px;
+            margin: 100px auto;
+        }
+
+        #left {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 200px;
+        }
+
+        #left {
+            border: 2px solid orange;
+            border-bottom: 0;
+        }
+
+
+
+        #left li {
+            border-bottom: 2px solid orange;
+            cursor: pointer;
+        }
+
+        #left li:hover {
+            background-color: #999;
+        }
+
+        #left li a {
+            display: inline-block;
+            padding: 2px 20px;
+
+        }
+
+        #content {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 400px;
+        }
+
+        #content div {
+            display: none;
+
+        }
+
+        #content div:first-child {
+            display: block;
+
+        }
+
+        #content img {
+            width: 400px;
+            height: 250px;
+            border: 4px solid rgb(30, 122, 188);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul id="left">
+            <li><a href="javascript:;">火影忍者</a></li>
+            <li><a href="javascript:;">轻音少女</a></li>
+            <li><a href="javascript:;">缘之空</a></li>
+            <li><a href="javascript:;">犬夜叉</a></li>
+            <li><a href="javascript:;">银魂</a></li>
+            <li><a href="javascript:;">记录的地平线</a></li>
+            <li><a href="javascript:;">东京喰种</a></li>
+            <li><a href="javascript:;">幽灵公主</a></li>
+            <li><a href="javascript:;">海贼王</a></li>
+        </ul>
+        <div id="content">
+            <div>
+                <a href="javascript:;"><img src="img/11.jpg"></a>
+            </div>
+            <div>
+                <a href="javascript:;"><img src="img/22.jpg"></a>
+            </div>
+            <div>
+                <a href="javascript:;"><img src="img/33.jpg"></a>
+            </div>
+            <div>
+                <a href="javascript:;"><img src="img/44.jpg"></a>
+            </div>
+            <div>
+                <a href="javascript:;"><img src="img/55.jpg"></a>
+            </div>
+            <div>
+                <a href="javascript:;"><img src="img/66.jpg"></a>
+            </div>
+            <div>
+                <a href="javascript:;"><img src="img/77.jpg"></a>
+            </div>
+            <div>
+                <a href="javascript:;"><img src="img/88.jpg"></a>
+            </div>
+            <div>
+                <a href="javascript:;"><img src="img/99.jpg"></a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var index = 0;
+            $('#left>li').click(function () {
+                index = $(this).prevAll().length;
+                $(this).css('background', 'skyblue');
+                $(this).siblings().css('background', '');
+                $('#content div').eq(index).css('display', 'block');
+                $('#content>div').eq(index).siblings('div').css('display', 'none');
+            })
+        })
+    </script>
+</body>
+
+</html>
